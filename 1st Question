@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+int main()
+{
+    int l;
+    printf("Enter the length of array\n");
+    scanf("%d", &l);
+    
+    if ((l < 1) || (l > 1000))
+    {
+        return 1;
+    }
+    
+    int p[l];
+    
+    printf("enter the numbers in array:\n");
+    
+    for (int i = 0; i < l; i++)
+    {
+        scanf("%d", &p[i]);
+    }
+    
+    
+    for (int i = 1; i < l; i++)
+    {
+        int j = p[i];
+        int smaller = 0;
+        int larger = 0;
+        printf("p[%d] : %d = ", i, j);
+        
+        for (int  k = 0; k < i; k++) //for smaller than
+        {
+            if (p[k] < j)
+            {
+                smaller++;
+            }
+            
+            if (p[k] > j)
+            {
+                larger++;
+            }
+        }
+        
+        if (smaller == i)
+        {
+            printf(" smaller: %d\n", smaller);
+        }
+        
+        if (larger == i)
+        {
+            printf(" larger: %d\n", larger);
+        }
+        
+        if ((smaller != i) && (larger != i))
+        {
+            printf("\n");
+        }
+    }
+}
